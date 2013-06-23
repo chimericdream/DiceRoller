@@ -52,10 +52,13 @@ class DiceRoller
         }
     }
 
-    // @todo: rollMacro()
     public function rollMacro($macro, $outputType = self::SHOW_FULL_RESULT)
     {
-        echo "rollMacro({$macro}, {$outputType})<br>\n";
+        $tmpDice = $this->dice;
+        $this->dice = unserialize($this->macros[$macro]);
+        $output = $this->roll($outputType);
+        $this->dice = $tmpDice;
+        return $output;
     }
 
     public function addDice($qty, $type, $modifier = 0, $label = '')
@@ -64,25 +67,24 @@ class DiceRoller
         return $this;
     }
 
-    // @todo: loadMacro()
-    public function loadMacro($string)
+    public function loadMacro($string, $name)
     {
-        echo "loadMacro({$string})<br>\n";
+        $this->macros[$name] = unserialize($string);
         return $this;
     }
 
-    // @todo: saveMacro()
     public function saveMacro($name)
     {
-        echo "saveMacro()<br>\n";
+        $this->macros[$name] = serialize($this->dice);
         return $this;
     }
 
-    // @todo: getMacro()
-    public function getMacro()
+    public function getMacro($name)
     {
-        echo "getMacro()<br>\n";
-        return $this;
+        if (empty($this->macros[$name])) {
+            return "Macro \"{$name}\" is not defined, or it is empty.";
+        }
+        return $this->macros[$name];
     }
 
     public function clear($c = self::CLEAR_CURRENT_DICE)
