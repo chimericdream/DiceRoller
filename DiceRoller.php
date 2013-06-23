@@ -70,7 +70,7 @@ class DiceRoller
     }
 
     // @todo: saveMacro()
-    public function saveMacro()
+    public function saveMacro($name)
     {
         echo "saveMacro()<br>\n";
     }
