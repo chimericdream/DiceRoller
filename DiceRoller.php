@@ -61,24 +61,28 @@ class DiceRoller
     public function addDice($qty, $type, $modifier = 0, $label = '')
     {
         $this->dice[] = new Dice($type, $qty, $modifier, $label);
+        return $this;
     }
 
     // @todo: loadMacro()
     public function loadMacro($string)
     {
         echo "loadMacro({$string})<br>\n";
+        return $this;
     }
 
     // @todo: saveMacro()
     public function saveMacro($name)
     {
         echo "saveMacro()<br>\n";
+        return $this;
     }
 
     // @todo: getMacro()
     public function getMacro()
     {
         echo "getMacro()<br>\n";
+        return $this;
     }
 
     public function clear($c = self::CLEAR_CURRENT_DICE)
@@ -91,5 +95,6 @@ class DiceRoller
             $this->dice   = array();
             $this->macros = array();
         }
+        return $this;
     }
 }
