@@ -20,7 +20,6 @@ class DiceRoller
     {
     }
 
-    // @todo: add full output
     public function roll($outputType = self::SHOW_FULL_RESULT)
     {
         if (empty($this->dice)) {
