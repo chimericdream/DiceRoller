@@ -73,6 +73,23 @@ class DiceRoller
         return $this;
     }
 
+    public function loadFromString($string)
+    {
+        $n = substr($string, 0, strpos($string, 'd'));
+        $string = substr($string, strpos($string, 'd') + 1);
+
+        $type = '';
+        while (is_numeric(substr($string, 0, 1))) {
+            $type .= substr($string, 0, 1);
+            $string = substr($string, 1);
+        }
+        $modifier = $string;
+
+        $this->addDice($n, $type, $modifier);
+
+        return $this;
+    }
+
     public function saveMacro($name)
     {
         $this->macros[$name] = serialize($this->dice);
