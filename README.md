@@ -12,12 +12,10 @@ criteria.
 FEATURES
 ---------------------
 
-Dice: Add as many dice as you want of varying types
-Modifiers: Add modifiers to any die rolls, down to the individual die level if
-you wish
-Macros: Save multiple types of rolls (e.g. for different weapons and/or
-situations) as macros for quick setup and rolling later.
-Chaining: Write cleaner code by chaining multiple functions together
+* Dice: Add as many dice as you want of varying types
+* Modifiers: Add modifiers to any die rolls, down to the individual die level if you wish
+* Macros: Save multiple types of rolls (e.g. for different weapons and/or situations) as macros for quick setup and rolling later.
+* Chaining: Write cleaner code by chaining multiple functions together
 
 EXAMPLE
 ---------------------
