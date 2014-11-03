@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/DiceRoller.php';
+require_once dirname(__FILE__) . '/../WorldOfPannotia/Tools/DiceRoller.php';
 
 use WorldOfPannotia\Tools\DiceRoller;
 
