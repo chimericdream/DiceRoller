@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="util/phpunitBootstrap.php">
+    <testsuites>
+        <testsuite name="WorldOfPannotiaTest">
+            <directory>./WorldOfPannotiaTest/Tools/</directory>
+        </testsuite>
+    </testsuites>
+    <!--logging>
+        <log type="coverage-html" target="public_html/docs/coverage" charset="UTF-8" highlight="true" lowUpperBound="40" highLowerBound="80"/>
+        <log type="coverage-clover" target="public_html/docs/coverage.xml"/>
+    </logging>
+    <listeners>
+        <listener class="BnbCollectionsTest\TestListener" file="BnbCollectionsTest/TestListener.php">
+            <arguments>
+                <string>public_html/docs/testing/results.json</string>
+            </arguments>
+        </listener>
+    </listeners-->
+    <php>
+        <const name="UNDER_TEST" value="true"/>
+    </php>
+</phpunit>

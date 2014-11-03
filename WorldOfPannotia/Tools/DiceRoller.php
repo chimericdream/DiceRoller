@@ -15,9 +15,16 @@ class DiceRoller
 
     private $dice    = array();
     private $macros  = array();
+    private $defaultSeed = null;
 
     public function __construct()
     {
+    }
+
+    public function setDefaultSeed($seed)
+    {
+        $this->defaultSeed = $seed;
+        return $this;
     }
 
     public function roll($outputType = self::SHOW_FULL_RESULT)
@@ -63,7 +70,11 @@ class DiceRoller
 
     public function addDice($qty, $type, $modifier = 0, $label = '')
     {
-        $this->dice[] = new Dice($type, $qty, $modifier, $label);
+        $die = new Dice($type, $qty, $modifier, $label);
+        if (!is_null($this->defaultSeed)) {
+            $die->setSeed($this->defaultSeed);
+        }
+        $this->dice[] = $die;
         return $this;
     }
 
