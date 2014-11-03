@@ -11,7 +11,7 @@ class Dice
     private $modifier = 0;
     private $label    = '';
 
-    public function __construct($type, $qty, $modifier, $label = '')
+    public function __construct($type = -1, $qty = -1, $modifier = 0, $label = '')
     {
         $this->dieType  = $type;
         $this->quantity = $qty;
@@ -21,13 +21,66 @@ class Dice
         $this->seed();
     }
 
+    public function getDieType()
+    {
+        return $this->dieType;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    public function getModifier()
+    {
+        return $this->modifier;
+    }
+
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    public function setDieType($dieType)
+    {
+        $this->dieType = $dieType;
+        return $this;
+    }
+
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+        return $this;
+    }
+
+    public function setModifier($modifier)
+    {
+        $this->modifier = $modifier;
+        return $this;
+    }
+
+    public function setLabel($label)
+    {
+        $this->label = $label;
+        return $this;
+    }
+
+    public function setSeed($seed)
+    {
+        $this->seed($seed);
+        return $this;
+    }
+
     public function roll($outputType = self::SHOW_FULL_RESULT)
     {
         $output = $this->quantity . 'd' . $this->dieType;
         if ($this->modifier > 0) {
             $output .= '+' . $this->modifier;
         }
-        $output .= ' ' . $this->label . ' (';
+        if (!empty($this->label)) {
+            $output .= ' ' . $this->label;
+        }
+        $output .= ' (';
         $total  = 0;
         for ($i = 1; $i <= $this->quantity; $i++) {
             $output .= ($i > 1) ? '+' : '';
@@ -52,12 +105,12 @@ class Dice
         }
     }
 
-    private function seed()
+    private function seed($seed = null)
     {
         if (function_exists('mt_srand')) {
-            mt_srand();
+            mt_srand($seed);
         } else {
-            srand();
+            srand($seed);
         }
     }
 

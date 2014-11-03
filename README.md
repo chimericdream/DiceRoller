@@ -1,8 +1,9 @@
 PHP Dice Roller
 ====================
 
-[![Build Status (develop)](https://travis-ci.org/chimericdream/DiceRoller.svg?branch=develop)](https://travis-ci.org/chimericdream/DiceRoller)
-[![Build Status (master)](https://travis-ci.org/chimericdream/DiceRoller.svg?branch=master)](https://travis-ci.org/chimericdream/DiceRoller)
+_Current Version:_ [![Build Status (master)](https://travis-ci.org/chimericdream/DiceRoller.svg?branch=master)](https://travis-ci.org/chimericdream/DiceRoller)
+
+_Dev Version:_ [![Build Status (develop)](https://travis-ci.org/chimericdream/DiceRoller.svg?branch=develop)](https://travis-ci.org/chimericdream/DiceRoller)
 
 DESCRIPTION
 ---------------------
